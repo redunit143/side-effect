@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "side-effect"
+  "defaultProject": "side-effect",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
