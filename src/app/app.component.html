@@ -200,7 +200,7 @@
     text-indent: 4px;
   }
 
-  .terminal pre {
+  .terminal pre, .form {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
     color: white;
     padding: 0 1rem 1rem;
@@ -300,7 +300,10 @@
       visibility: hidden;
     }
   }
+
 </style>
+
+
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
@@ -430,10 +433,49 @@
   </div>
 
 
+
+<h2>Books</h2>
+<app-book-list class="book-list" [books]="books$ | async" (addx)="onAddx($event)"></app-book-list>
+
+
+
+<h2>My Collection</h2>
+<app-book-collection class="book-collection" [books]="bookCollection$ | async" (remove)="onRemove($event)">
+</app-book-collection>
+
+
+<h2>Alt Signals</h2>
+<app-alt-signal (altSig)="onAltSig($event)">
+</app-alt-signal>
+
+<!--  -->
+
+<div class="terminal">
+<div class="form">
+<h3>Login FORM</h3>
+<lib-login-form></lib-login-form>
+</div>
+</div>
+
+<!--
+ -->
+
+
+<div class="terminal">
+<div class="form">
+<h3>Login FORM (Group)</h3>
+<lib-login-form-group></lib-login-form-group>
+</div>
+</div>
+
+
+
   <!-- Footer -->
   <footer>
-
   </footer>
+
+
+<lib-logo></lib-logo>
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>

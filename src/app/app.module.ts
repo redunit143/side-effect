@@ -9,14 +9,34 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CustomerModule } from './customer/customer.module';
 
+import { booksReducer } from './states/books.reducer';
+import { collectionReducer } from './states/collection.reducer';
+import { BookListComponent } from './book-list/book-list.component';
+import { BookCollectionComponent } from './book-collection/book-collection.component';
+import { AltSignalComponent } from './alt-signal/alt-signal.component';
+import { altStateReducer } from './states/alt.state.reducer';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { NformLibraryModule } from 'nform-library';
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, BookListComponent, BookCollectionComponent, AltSignalComponent,
+
   ],
   imports: [
+    NformLibraryModule,
+
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    HttpClientModule,
+    StoreModule.forRoot({
+      books: booksReducer,
+      collection: collectionReducer
+      }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     CustomerModule,
   ],

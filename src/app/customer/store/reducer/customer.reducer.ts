@@ -23,7 +23,7 @@ export const initialState: CustomerState = {
 };
 
 
-export const customerReducer = createReducer(
+const customerReducer = createReducer(
   initialState,
 
   on(CustomerActions.addCustomer,
